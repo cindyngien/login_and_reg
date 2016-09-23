@@ -1,0 +1,28 @@
+<div ng-controller="userController">
+  <h4>Register</h4>
+  <form name="registerForm">
+    First Name: <input type="text" name="first_name" ng-model="new_user.first_name" ng-minlength='2'required><div ng-messages="registerForm.first_name.$error">
+      <i><p ng-message="minlength">First name is too short</p></i>
+      <i><p ng-message="required">First name is required</p></i>
+    </div>
+    Last Name: <input type="text" name="last_name" ng-model="new_user.last_name" ng-minlength='2' required><div ng-messages="registerForm.last_name.$error">
+      <i><p ng-message="minlength">Last name is too short</p></i>
+      <i><p ng-message="required">Last name is required</p></i>
+    </div>
+    Email: <input type="email" name="email" ng-model="new_user.email" ng-minlength='8' required><div ng-messages="registerForm.email.$error">
+      <i><p ng-message="minlength">Email is too short</p></i>
+      <i><p ng-message="required">Email is required</p></i>
+    </div>
+    Password: <input type="password" name="password" ng-model="new_user.password" ng-minlength='8' required><div ng-messages="registerForm.password.$error">
+      <i><p ng-message="minlength">Password is too short</p></i>
+      <i><p ng-message="required">Password is required</p></i>
+    </div>
+    Password Confirmation: <input type="password" name="password_confirm" ng-model="new_user.password_confirm" ng-pattern="/^{{password}}$/" required><div ng-messages="registerForm.password_confirm.$error">
+      <i><p ng-message="pattern">Passwords must both match</p></i>
+    </div>
+    Birthday: <input type="date" name="birthday" ng-model="new_user.birthday" required>  <div ng-messages="registerForm.birthday.$error">
+        <i><p ng-message="required">Birthday is required</p></i>
+      </div>
+    <input type="submit" ng-click="registerUser()" value="Register">
+  </form>
+</div>
